@@ -1,0 +1,26 @@
+/* *is for universal selector */
+/* ctrl+/=comments in css */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+AU+QLD:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+AU+QLD:wght@100..400&display=swap");
+body {
+  font-family: "Mozilla Headline", sans-serif;
+  background-color: rgb(31.197% 22.013% 53.11%);
+  color: rgb(99.069% 99.141% 78.65%);
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+}
+h2 {
+  font-size: 1.5rem;
+  color: brown;
+}
+h3 {
+  font-size: 1.25rem;
+}
+
+ol {
+  list-style-position: inside;
+}
