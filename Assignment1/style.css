@@ -3,4 +3,28 @@ body {
   font-family: "Mozilla Headline", sans-serif;
   background-color: rgb(15.234% 17.278% 20.623%);
   color: rgb(84.575% 95.982% 80.95%);
+  padding: 5% 20%;
+  border: 1rem dotted;
+  border-radius: 2rem;
+}
+ul {
+  padding: 0 2rem;
+}
+p {
+  padding: 1rem 1rem;
+  color: antiquewhite;
+}
+h1 {
+  font-size: 40px;
+  padding: 1rem 0;
+}
+
+section {
+  padding: 1rem 0;
+}
+li {
+  padding: 1rem 0;
+}
+section1 {
+  color: antiquewhite;
 }
