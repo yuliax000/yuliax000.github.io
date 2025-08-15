@@ -32,3 +32,13 @@ section1 {
 #infoPara {
   margin: auto;
 }
+
+a:link {
+  background-color: rgb(84.575% 95.982% 80.95%);
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+a: visited;
