@@ -47,3 +47,48 @@ ol {
 .navLinkbox li {
   background-color: aquamarine;
 }
+
+.gridBox {
+  background-color: blueviolet;
+  display: grid;
+  height: 20rem;
+  width: 20rem;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 2fr 1fr 20px;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+/* section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+#boxItem1 {
+  background-color: darkgreen;
+  width: 3rem;
+}
+#boxItem2 {
+  background-color: rgb(155, 160, 206);
+  grid-column: 2/4;
+  grid-row: 1/4;
+}
+#boxItem3 {
+  background-color: rgb(187, 180, 111);
+  grid-column: 1/4;
+  grid-row: 2/4;
+}
+#boxItem4 {
+  background-color: rgb(226, 186, 65);
+}
+#boxItem5 {
+  background-color: rgb(156, 64, 132);
+}
+#boxItem6 {
+  background-color: rgb(0, 100, 90);
+}
+#boxItem7 {
+  background-color: rgb(84, 129, 76);
+}
