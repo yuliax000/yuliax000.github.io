@@ -24,3 +24,26 @@ h3 {
 ol {
   list-style-position: inside;
 }
+
+#infoPara {
+  padding: 1rem;
+  margin: 0 auto;
+  border: 1rem double rgb(99.069% 99.141% 78.65%);
+  /* display: none is a easy way to hide a section */
+  display: none;
+}
+
+.navLinkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  width: 100%;
+  height: 5rem;
+  margin: 1rem 0;
+}
+.navLinkbox li {
+  background-color: aquamarine;
+}
