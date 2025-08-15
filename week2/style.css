@@ -30,7 +30,6 @@ ol {
   margin: 0 auto;
   border: 1rem double rgb(99.069% 99.141% 78.65%);
   /* display: none is a easy way to hide a section */
-  display: none;
 }
 
 .navLinkbox {
