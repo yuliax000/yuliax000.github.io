@@ -35,10 +35,26 @@ section1 {
 
 a:link {
   background-color: rgb(84.575% 95.982% 80.95%);
-  color: white;
-  padding: 14px 25px;
+  color: rgb(15.234% 17.278% 20.623%);
+  padding: 1rem 1rem;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  border-radius: 50%;
 }
-a: visited;
+a:visited {
+  background-color: rgb(84.575% 95.982% 80.95%);
+  color: rgb(144, 117, 152);
+  padding: 1rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+a:hover {
+  background-color: antiquewhite;
+}
+
+a:active {
+  background-color: rgb(64, 106, 112);
+  color: white;
+}
