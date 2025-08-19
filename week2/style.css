@@ -59,11 +59,11 @@ ol {
   gap: 1rem;
 }
 
-/* section {
+section {
   display: flex;
   flex-direction: column;
   align-items: center;
-} */
+}
 
 #boxItem1 {
   background-color: darkgreen;
