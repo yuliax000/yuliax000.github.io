@@ -33,6 +33,7 @@ section {
 }
 li {
   padding: 1rem 0;
+  margin: auto;
 }
 .actions {
   color: antiquewhite;
