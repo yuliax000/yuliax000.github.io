@@ -23,15 +23,20 @@
     <!-- my main -->
     <main>
       <!-- my media player section -->
-      <section>
-        <video controls>
+      <section class="mediaPlayerSelection">
+        <video id="mediaPlayer" controls>
           <!-- media player source -->
           <source
-            src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4Links to an external site. "
+            src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4 "
             type="video/mp4"
           />
           This browser does not support the video element.
         </video>
+        <!-- media player controls -->
+        <div class="mediaPlayerControlContainer">
+          <button id="playPauseButton">some unicode</button>
+          <progress id="timelineProgress" max="100" value="0"></progress>
+        </div>
       </section>
     </main>
 
