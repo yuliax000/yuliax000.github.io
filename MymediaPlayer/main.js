@@ -38,3 +38,17 @@ function updateTimeline() {
 }
 
 videoElement.addEventListener("timeupdate", updateTimeline);
+
+
+/* shuffle button behavior */
+
+
+
+/*volume slider behavior */
+
+
+
+
+// playlist behavior
+
+

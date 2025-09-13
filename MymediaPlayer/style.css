@@ -1,3 +1,9 @@
+/* a study website need to have colors that are harmonious and can help calm one's mind.  */
+/* layout need to be simple and clear, avoid too many functions to distract users' attention*/
+/* complex motion might lead to distraction, so a mostly static page might be better. */
+/* Avoid overly sharp fonts and graphics*/
+/* volume slider and repeat function are needed*/
+/*additional: playlist and shuffle*/
 :root {
   --color-01: white;
   --color-02: black;
