@@ -18,16 +18,16 @@ cursor change on hover
 function playPause() {
   if (videoElement.paused || videoElement.ended) {
     videoElement.play();
-    playPauseButton.textContent = "⏸";
+    playIcon.src = "assets/icons8-pause-60.png";
   } else {
     videoElement.pause();
-    playPauseButton.textContent = "▶";
+    playIcon.src = "assets/icons8-play-60.png";
   }
 }
 playPauseButton.addEventListener("click", playPause);
 
 /* timelinee behavior:
-it should update as media playback occurss to show current time
+it should update as media playback occurs to show current time
 I should be able to click and jump to particular time
 */
 
@@ -39,16 +39,13 @@ function updateTimeline() {
 
 videoElement.addEventListener("timeupdate", updateTimeline);
 
+/*volume slider*/
+/*A volume slider is necessary 
+because different users may require different volume levels for background sounds 
+when they are learning or working. */
 
-/* shuffle button behavior */
+/*loop*/
+/*By default, audio loops so that users do not need to control the audio while they are studying or working*/
+/*If users want to stop the loop, they can click on repeat button */
 
-
-
-/*volume slider behavior */
-
-
-
-
-// playlist behavior
-
-
+/*playlist*/

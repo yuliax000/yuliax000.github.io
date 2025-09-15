@@ -24,18 +24,73 @@
     <main>
       <!-- my media player section -->
       <section class="mediaPlayerSelection">
-        <video id="mediaPlayer" controls>
+        <audio id="mediaPlayer" controls>
           <!-- media player source -->
           <source
-            src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4 "
-            type="video/mp4"
+            src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/erokia_ambient-wave-56-msfxp7-78.mp3"
+            type="audio/mpeg"
           />
           This browser does not support the video element.
-        </video>
+        </audio>
+      </section>
+      <!-- The user might have hoped for a wider variety of music, so I have prepared a playlist. -->
+      <section class="audioList">
+        <button id="audio1">music 1</button>
+        <button id="audio2">music 2</button>
+        <button id="audio3">music 3</button>
+      </section>
+      <section class="mediaTitle">
+        <h3>Now Playing:<span id="video-name"></span></h3>
+      </section>
+
+      <section class="mediaControl">
         <!-- media player controls -->
         <div class="mediaPlayerControlContainer">
-          <button id="playPauseButton">▶</button>
+          <button id="playPauseButton">
+            <img
+              id="playIcon"
+              src="assets/icons8-play-60.png"
+              alt="playButton"
+            />
+          </button>
+          <button id="loopButton">
+            <img
+              id="repeatIcon"
+              src="assets/icons8-repeat-60 (1).png"
+              alt="repeatButton"
+            />
+          </button>
+          <button id="noAudioButton">
+            <img
+              id="noAudioIcon"
+              src="assets/icons8-no-audio-60.png"
+              alt="noAudioButton"
+            />
+          </button>
+          <button id="previousButton">
+            <img
+              id="previousIcon"
+              src="assets/icons8-skip-to-start-60 (1).png"
+              alt="previousButton"
+            />
+          </button>
+          <button id="nextButton">
+            <img
+              id="nextIcon"
+              src="assets/icons8-end-60.png"
+              alt="nextButton"
+            />
+          </button>
+
           <progress id="timelineProgress" max="100" value="0"></progress>
+          <input
+            id="volumeSlider"
+            type="range"
+            min="0"
+            max="1"
+            step="any"
+            value="0.5"
+          />
         </div>
       </section>
     </main>
@@ -43,10 +98,58 @@
     <!-- footer contains our attribution -->
     <footer>
       <p>&copy; 2025 Media Player Website. All rights reserved.</p>
-      <a href="https://icons8.com/icon/59862/play">Play</a> icon by
+      icon by
       <a href="https://icons8.com">Icons8</a>
       <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
       <a href="https://icons8.com">Icons8</a>
+      <a target="_blank" href="https://icons8.com/icon/91481/repeat">Repeat</a>
+      icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+      <a target="_blank" href="https://icons8.com/icon/reqgj3e1uKBy/audio"
+        >Audio</a
+      >
+      icons by <a target="_blank" href="https://icons8.com">Icons8</a>
+      <a
+        target="_blank"
+        href="https://icons8.com/icon/YTSDoX6z463S/skip-to-start"
+        >Skip to Start</a
+      >
+      icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+      <a target="_blank" href="https://icons8.com/icon/9m6KWcXqAqBT/end">End</a>
+      icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+      <p class="attribution">
+        "<a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://freesound.org/people/Erokia/sounds/516902"
+          >Ambient Wave 56 - (MSfxP7 - 78)</a
+        >" by
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://freesound.org/people/Erokia"
+          >Erokia</a
+        >
+        is licensed under
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://creativecommons.org/licenses/by-nc/4.0/?ref=openverse"
+          >CC BY-NC 4.0
+          <img
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
+            style="height: 1em; margin-right: 0.125em; display: inline"
+          />
+          <img
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
+            style="height: 1em; margin-right: 0.125em; display: inline"
+          />
+          <img
+            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg"
+            style="height: 1em; margin-right: 0.125em; display: inline"
+          /> </a
+        >.
+      </p>
     </footer>
   </body>
 </html>
