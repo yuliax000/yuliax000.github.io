@@ -100,7 +100,7 @@ main {
 #loopButton {
   width: 30px;
   height: 30px;
-  background-color: var(--color-06);
+  background-color: var(--color-03);
 }
 
 #noAudioButton {
@@ -149,4 +149,9 @@ a:link {
 
 button {
   cursor: pointer;
+}
+/* it's easy to confuse users with my repeat button's colors, so I add a color-change interaction to all button
+to indicate user that color03 is the default color appears when the button is clicked */
+button:active {
+  background-color: var(--color-03) !important;
 }
