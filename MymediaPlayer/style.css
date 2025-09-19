@@ -34,17 +34,34 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 5rem;
+  line-height: 5.5rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+#currentTime {
+  color: #6b61ff;
 }
 
 nav {
+  margin: 1%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   border: var(--border);
-  padding: 3rem 1rem;
-  width: 75%;
+  padding: 0 1rem;
+  width: 80%;
+  font-size: large;
 }
 
 footer {
@@ -63,8 +80,8 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: 3rem;
-  padding: 5%;
-  width: 100%;
+
+  width: 80%;
 }
 
 .mediaPlayerSelection {
@@ -100,12 +117,6 @@ main {
 }
 
 #loopButton {
-  width: 30px;
-  height: 30px;
-  background-color: var(--color-04);
-}
-
-#noAudioButton {
   width: 30px;
   height: 30px;
   background-color: var(--color-04);
@@ -165,3 +176,13 @@ button:active {
   display: flex;
   flex-direction: column;
 }
+
+h3 {
+  font-size: large;
+}
+
+/* I asked my friend for advice after I finish the prototype. 
+gained some useful suggestion on the margin and font size:
+1. original "now playing" text is too small because it lacks contrast with background. 
+2. original gap between the row elements is too large which is unbalanced.
+ I adjust them then. */

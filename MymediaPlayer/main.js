@@ -19,9 +19,6 @@ const musicList = [
   },
 ];
 
-/*originally loop*/
-let loop = true;
-videoElement.loop = true;
 /* when js loads remove default controls*/
 videoElement.removeAttribute("controls");
 
@@ -59,6 +56,22 @@ function updateTimeline() {
 
 videoElement.addEventListener("timeupdate", updateTimeline);
 
+// find when I click my timeline, then I jump to appropriate time
+
+timeline.addEventListener("click", jumpToTime);
+
+function jumpToTime(ev) {
+  // find how far  from the left we clicked
+  let clickX = ev.offsetX;
+  // fine how wide my timeline is
+  let timelineWidth = timeline.offsetWidth;
+  // find the ration of click to width
+  let clickPercent = clickX / timelineWidth;
+  // add current time
+  videoElement.currentTime = videoElement.duration * clickPercent;
+  console.log(clickPercent);
+}
+
 /*volume slider*/
 /*A volume slider is necessary 
 because different users may require different volume levels for background sounds 
@@ -70,21 +83,22 @@ volumeSlider.addEventListener("input", () => {
   videoElement.volume = volumeSlider.value;
 });
 
-/*unloop*/
-/*By default, audio loops so that users do not need to control the audio while they are studying or working*/
-/*If users want to stop the loop, they can click on repeat button */
+// Below is a function I delete. It's a function to unloop the audio.
+// I delete it because the website should provide continuous background music,
+// when users want to stop the music, they can click pause button.
+// NO NEED for an unloop button. I use this icon for musiclist loop function.
 
-function unloopAudio() {
-  loop = !loop;
-  if (loop) {
-    loopButton.style.backgroundColor = "#98afba";
-  } else {
-    loopButton.style.backgroundColor = "#ac84ac";
-  }
-  videoElement.loop = loop;
-  console.log("loop is", loop);
-}
-loopButton.addEventListener("click", unloopAudio);
+//  function unloopAudio() {
+//   loop = !loop;
+//   if (loop) {
+//     loopButton.style.backgroundColor = "#98afba";
+//   } else {
+//     loopButton.style.backgroundColor = "#ac84ac";
+//   }
+//   videoElement.loop = loop;
+//   console.log("loop is", loop);
+// }
+// loopButton.addEventListener("click", unloopAudio);
 
 /*playlist*/
 /*playlist behavior*/
@@ -151,3 +165,49 @@ function playAudioAtIndex(index) {
   videoElement.play();
   audioName.textContent = musicList[index].name;
 }
+
+// musiclist loop function
+function updateCurrentSong(index) {
+  videoElement.src = musicList[index].link;
+  videoElement.load();
+  videoElement.play();
+  audioName.textContent = musicList[index].name;
+}
+
+function playNextOnEnd() {
+  if (currentIndex < musicList.length - 1) {
+    updateCurrentSong(currentIndex + 1);
+    currentIndex += 1;
+  } else {
+    updateCurrentSong(0);
+    currentIndex = 0;
+  }
+}
+function loopItself() {
+  updateCurrentSong(currentIndex);
+}
+
+function afterEnd() {
+  if (isLooping) {
+    playNextOnEnd();
+  } else {
+    loopItself();
+  }
+}
+videoElement.addEventListener("ended", afterEnd);
+
+let isLooping = true;
+loopButton.addEventListener("click", listLoop);
+
+function listLoop() {
+  isLooping = !isLooping;
+  if (isLooping) {
+    loopButton.style.backgroundColor = "#fadda2";
+
+    console.log(isLooping);
+  } else {
+    loopButton.style.backgroundColor = "#8ecde6";
+    videoElement.loop = false;
+  }
+}
+console.log(isLooping);
