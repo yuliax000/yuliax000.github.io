@@ -8,16 +8,17 @@
 
 /* I used a less saturated blue-gray color as the background. 
 Blue can make people more calm and avoid the distraction that high saturation colors might cause. 
-Use a darker pink to indicate the positions of the buttons and navigation bar.
+yellow provides contrast and grab users attention.
 In addition, for the other colors, similar shades of these two colors were chosen to maintain the consistency of the picture. */
+/* these colors are from https://lospec.com/palette-list/capp-5, named CAPP-5 by Cappuchi */
 :root {
-  --color-01: white;
-  --color-02: #344a53;
-  --color-03: #98afba;
-  --color-04: #d0a9cf;
-  --color-05: #47bacc;
-  --color-06: #ac84ac;
-  --border: dashed #ac84ac 3px;
+  --color-01: #f0eff4;
+  --color-02: #6b61ff;
+  --color-03: #8ecde6;
+  --color-04: #fadda2;
+  --color-05: #66a1ff;
+
+  --border: dashed #f0eff4 3px;
 }
 
 body {
@@ -42,7 +43,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   border: var(--border);
-  padding: 0 1rem;
+  padding: 3rem 1rem;
   width: 75%;
 }
 
@@ -58,10 +59,11 @@ footer {
 main {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  max-width: 1000px;
+  gap: 3rem;
+  padding: 5%;
   width: 100%;
 }
 
@@ -94,31 +96,31 @@ main {
 #playPauseButton {
   width: 30px;
   height: 30px;
-  background-color: var(--color-06);
+  background-color: var(--color-04);
 }
 
 #loopButton {
   width: 30px;
   height: 30px;
-  background-color: var(--color-03);
+  background-color: var(--color-04);
 }
 
 #noAudioButton {
   width: 30px;
   height: 30px;
-  background-color: var(--color-06);
+  background-color: var(--color-04);
 }
 
 #previousButton {
   width: 30px;
   height: 30px;
-  background-color: var(--color-06);
+  background-color: var(--color-04);
 }
 
 #nextButton {
   width: 30px;
   height: 30px;
-  background-color: var(--color-06);
+  background-color: var(--color-04);
 }
 
 a:link {
@@ -135,12 +137,15 @@ a:link {
   align-items: center;
   gap: 1rem;
   width: 100%;
+  border: var(--border);
+  padding: 2rem;
 }
 #audio1,
 #audio2,
 #audio3 {
+  border: none;
   width: 100%;
-  background-color: var(--color-04);
+  background-color: var(--color-05);
 }
 
 .mediaTitle {
@@ -154,4 +159,9 @@ button {
 to indicate user that color03 is the default color appears when the button is clicked */
 button:active {
   background-color: var(--color-03) !important;
+}
+
+#mediaPlayerContainer {
+  display: flex;
+  flex-direction: column;
 }

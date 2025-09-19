@@ -6,13 +6,9 @@
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
-    <title>Media Player Baseline</title>
+    <title>study space</title>
   </head>
   <body>
-    <!-- my page heading -->
-    <header>
-      <h1>My media player</h1>
-    </header>
     <!-- my nav bar -->
     <nav>
       <a>home</a>
@@ -22,71 +18,82 @@
     </nav>
     <!-- my main -->
     <main>
+      <!-- for a study/work website, time management is important. Thus I decide to provide a time section -->
+      <!-- my page heading -->
+      <header>
+        <h1>Study Space</h1>
+      </header>
+
+      <section class="timeText">
+        <p>Current time:</p>
+      </section>
       <!-- my media player section -->
-      <section class="mediaPlayerSelection">
-        <audio id="mediaPlayer" controls>
-          <!-- media player source -->
-          <source
-            src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/erokia_ambient-wave-56-msfxp7-78.mp3"
-            type="audio/mpeg"
-          />
-          This browser does not support the video element.
-        </audio>
-      </section>
-      <!-- The user might have hoped for a wider variety of music, so I have prepared a playlist. -->
-      <section class="audioList">
-        <button id="audio1">music 1</button>
-        <button id="audio2">music 2</button>
-        <button id="audio3">music 3</button>
-      </section>
-      <!-- with playlist, users might want to know which music they're playing now -->
-      <section class="mediaTitle">
-        <h3>Now Playing: <span id="audioName"></span></h3>
-      </section>
+      <div id="mediaPlayerContainer">
+        <section class="mediaPlayerSelection">
+          <audio id="mediaPlayer" controls>
+            <!-- media player source -->
+            <source
+              src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/erokia_ambient-wave-56-msfxp7-78.mp3"
+              type="audio/mpeg"
+            />
+            This browser does not support the video element.
+          </audio>
+        </section>
+        <!-- The user might have hoped for a wider variety of music, so I have prepared a playlist. -->
+        <section class="audioList">
+          <button id="audio1">music 1</button>
+          <button id="audio2">music 2</button>
+          <button id="audio3">music 3</button>
+        </section>
+        <!-- with playlist, users might want to know which music they're playing now. 
+       Through this hint they can also know if they change the sound successfully or not-->
+        <section class="mediaTitle">
+          <h3>Now Playing: <span id="audioName"></span></h3>
+        </section>
+        <section class="mediaControl">
+          <!-- media player controls -->
+          <div class="mediaPlayerControlContainer">
+            <button id="playPauseButton">
+              <img
+                id="playIcon"
+                src="assets/icons8-play-60.png"
+                alt="playButton"
+              />
+            </button>
+            <button id="loopButton">
+              <img
+                id="repeatIcon"
+                src="assets/icons8-repeat-60 (1).png"
+                alt="repeatButton"
+              />
+            </button>
+            <button id="previousButton">
+              <img
+                id="previousIcon"
+                src="assets/icons8-skip-to-start-60 (1).png"
+                alt="previousButton"
+              />
+            </button>
+            <button id="nextButton">
+              <img
+                id="nextIcon"
+                src="assets/icons8-end-60.png"
+                alt="nextButton"
+              />
+            </button>
 
-      <section class="mediaControl">
-        <!-- media player controls -->
-        <div class="mediaPlayerControlContainer">
-          <button id="playPauseButton">
-            <img
-              id="playIcon"
-              src="assets/icons8-play-60.png"
-              alt="playButton"
+            <progress id="timelineProgress" max="100" value="0"></progress>
+            <input
+              id="volumeSlider"
+              type="range"
+              min="0"
+              max="1"
+              step="any"
+              value="0.5"
             />
-          </button>
-          <button id="loopButton">
-            <img
-              id="repeatIcon"
-              src="assets/icons8-repeat-60 (1).png"
-              alt="repeatButton"
-            />
-          </button>
-          <button id="previousButton">
-            <img
-              id="previousIcon"
-              src="assets/icons8-skip-to-start-60 (1).png"
-              alt="previousButton"
-            />
-          </button>
-          <button id="nextButton">
-            <img
-              id="nextIcon"
-              src="assets/icons8-end-60.png"
-              alt="nextButton"
-            />
-          </button>
-
-          <progress id="timelineProgress" max="100" value="0"></progress>
-          <input
-            id="volumeSlider"
-            type="range"
-            min="0"
-            max="1"
-            step="any"
-            value="0.5"
-          />
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
     </main>
 
     <!-- footer contains our attribution -->

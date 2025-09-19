@@ -27,6 +27,7 @@
         <video id="mediaPlayer" controls>
           <!-- media player source -->
           <source
+            id="mediaSource"
             src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4 "
             type="video/mp4"
           />
@@ -34,8 +35,20 @@
         </video>
         <!-- media player controls -->
         <div class="mediaPlayerControlContainer">
-          <button id="playPauseButton">▶</button>
+          <button id="playPauseButton">
+            <img
+              id="playPauseIcon"
+              src="assets/icons8-play-60.png"
+              alt="play icon"
+            />
+          </button>
           <progress id="timelineProgress" max="100" value="0"></progress>
+          <!-- adding in a time feedback section: let users know how long the  video is  and its cuttrent time -->
+          <p class="timeContainer">
+            <span id="currentTimeFeedback">00:00</span>
+            /
+            <span id="totalTimeFeedback">04:30</span>
+          </p>
         </div>
       </section>
     </main>
