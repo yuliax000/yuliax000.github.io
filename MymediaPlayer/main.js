@@ -168,6 +168,7 @@ function playAudioAtIndex(index) {
 
 // musiclist loop function
 function updateCurrentSong(index) {
+  currentIndex = index;
   videoElement.src = musicList[index].link;
   videoElement.load();
   videoElement.play();
@@ -184,14 +185,15 @@ function playNextOnEnd() {
   }
 }
 function loopItself() {
-  updateCurrentSong(currentIndex);
+  videoElement.currentTime = 0;
+  videoElement.play();
 }
 
 function afterEnd() {
   if (isLooping) {
-    playNextOnEnd();
-  } else {
     loopItself();
+  } else {
+    playNextOnEnd();
   }
 }
 videoElement.addEventListener("ended", afterEnd);
@@ -200,14 +202,14 @@ let isLooping = true;
 loopButton.addEventListener("click", listLoop);
 
 function listLoop() {
-  isLooping = !isLooping;
   if (isLooping) {
-    loopButton.style.backgroundColor = "#fadda2";
+    loopButton.style.backgroundColor = "#8ecde6";
 
     console.log(isLooping);
   } else {
-    loopButton.style.backgroundColor = "#8ecde6";
+    loopButton.style.backgroundColor = "#fadda2";
     videoElement.loop = false;
   }
+  isLooping = !isLooping;
 }
 console.log(isLooping);

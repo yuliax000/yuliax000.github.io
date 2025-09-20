@@ -6,10 +6,10 @@
 /*additional: playlist and shuffle*/
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
-/* I used a less saturated blue-gray color as the background. 
+/* I used a less saturated blue color as the background. 
 Blue can make people more calm and avoid the distraction that high saturation colors might cause. 
 yellow provides contrast and grab users attention.
-In addition, for the other colors, similar shades of these two colors were chosen to maintain the consistency of the picture. */
+In addition, for the other colors, similar blue colors will keep the website looks like a whole  */
 /* these colors are from https://lospec.com/palette-list/capp-5, named CAPP-5 by Cappuchi */
 :root {
   --color-01: #f0eff4;
@@ -17,7 +17,8 @@ In addition, for the other colors, similar shades of these two colors were chose
   --color-03: #8ecde6;
   --color-04: #fadda2;
   --color-05: #66a1ff;
-
+  /* dashed border style evokes association with paper and hand-writing. 
+Enhance immersive working/study experience. */
   --border: dashed #f0eff4 3px;
 }
 
@@ -79,8 +80,7 @@ main {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 3rem;
-
+  gap: 8rem;
   width: 80%;
 }
 
@@ -105,9 +105,18 @@ main {
   padding: 0.5rem;
   cursor: pointer;
 }
-
+/* I choose this border style progress bar to keep the whole website cohesive*/
 #timelineProgress {
   flex: 1;
+  -webkit-appearance: none;
+}
+
+::-webkit-progress-bar {
+  background-color: var(--color-03);
+  border: var(--border);
+}
+::-webkit-progress-value {
+  background-color: #fadda2;
 }
 
 #playPauseButton {
@@ -175,10 +184,30 @@ button:active {
 #mediaPlayerContainer {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 h3 {
-  font-size: large;
+  font-size: x-large;
+}
+
+/* customized sliders can improve the completeness of the website. */
+#volumeSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  background-color: var(--color-05);
+}
+
+::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-04);
+  border: var(--border);
+  cursor: pointer;
 }
 
 /* I asked my friend for advice after I finish the prototype. 
