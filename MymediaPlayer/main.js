@@ -167,6 +167,8 @@ function playAudioAtIndex(index) {
 }
 
 // musiclist loop function
+// when the button is clicked, loop the whole musiclist
+// if not, then loop the music playing now.
 function updateCurrentSong(index) {
   currentIndex = index;
   videoElement.src = musicList[index].link;
