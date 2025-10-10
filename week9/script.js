@@ -20,6 +20,7 @@ function updateTransform() {
     const parentSize = transformOuter.getBoundingClientRect();
     const goal = parentSize.width / 2 - 25;
     ballTranslateX += 10;
+    
     updateTransform();
   }
   // attach to button
