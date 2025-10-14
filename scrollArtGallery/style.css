@@ -1,0 +1,75 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: beige;
+  gap: 10rem;
+  /* overflow: hidden; */
+}
+
+#title {
+  font-size: 10rem;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#instruction {
+  font-size: 5rem;
+  color: darkgrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  width: 40vw;
+  height: 60vh;
+  box-shadow: 0 0 20px rgba(77, 77, 77, 0.5);
+}
+
+.imgs {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  /* position: absolute; */
+  top: calc(50%-20vw);
+  left: calc(50%-30vh);
+  transition: 0.25s;
+}
+
+#img3,
+#img4,
+#img5 {
+  background-color: aliceblue;
+}
+
+.imgs img:nth-child(4) {
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.imgs img:nth-child(3),
+.imgs img:nth-child(5) {
+  transform: scale(0.95);
+  filter: blur(2rem);
+  opacity: 0.8;
+}
+
+.imgs img:nth-child(2),
+.imgs img:nth-child(6) {
+  transform: scale(0.75);
+  filter: blur(5rem);
+  opacity: 0.6;
+}
+
+.imgs img:nth-child(1),
+.imgs img:nth-child(7) {
+  transform: scale(0.45);
+  filter: blur(7rem);
+  opacity: 0.3;
+}
