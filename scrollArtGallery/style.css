@@ -26,8 +26,8 @@ body {
 }
 
 img {
-  width: 40vw;
-  height: 60vh;
+  width: 20vw;
+  height: 30vh;
   box-shadow: 0 0 20px rgba(77, 77, 77, 0.5);
 }
 
@@ -35,11 +35,11 @@ img {
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-between;
   /* position: absolute; */
-  top: calc(50%-20vw);
-  left: calc(50%-30vh);
+  top: calc(50% - 10vw);
+  left: calc(50% - 15vh);
   transition: 0.25s;
+  width: 100vw;
 }
 
 #img3,
@@ -48,28 +48,29 @@ img {
   background-color: aliceblue;
 }
 
-.imgs img:nth-child(4) {
+.imgs img:nth-child(1) {
+  transform: translate3d(-20vw, 0, 0) scale(0.75);
+  filter: blur(5rem);
+  opacity: 0.6;
+}
+
+.imgs img:nth-child(3) {
   transform: scale(1);
   filter: blur(0);
 }
 
-.imgs img:nth-child(3),
-.imgs img:nth-child(5) {
+.imgs img:nth-child(2),
+.imgs img:nth-child(4) {
   transform: scale(0.95);
   filter: blur(2rem);
   opacity: 0.8;
 }
-
-.imgs img:nth-child(2),
-.imgs img:nth-child(6) {
+,
+.imgs img:nth-child(5) {
   transform: scale(0.75);
   filter: blur(5rem);
   opacity: 0.6;
 }
 
-.imgs img:nth-child(1),
-.imgs img:nth-child(7) {
-  transform: scale(0.45);
-  filter: blur(7rem);
-  opacity: 0.3;
-}
+/* I plan to show 7 images on one page at first
+ but 5 images a page fits better on size*/
