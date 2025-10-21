@@ -1,7 +1,7 @@
 // I tried the method which contained in the reference video
 // sadly it didn't work well, it's not smooth at all.
 
-// -------------------------------------------------------------------------------------------
+// -----------------------------------1st method tried--------------------------------------------------------
 // let imgs = document.querySelector(`.imgs`);
 
 // function next() {
@@ -22,7 +22,7 @@
 //   }
 // });
 
-// -------------new method tried to figure out the infinite scroll--------------
+// -------------2nd method --------------
 const imgContainer = document.querySelector(".imgs");
 let imgs = Array.from(imgContainer.querySelectorAll("img"));
 
@@ -45,27 +45,6 @@ let isJumping = false;
 // scroll to certain distance, jump to another group
 function scrollEffect() {
   if (isJumping) return;
-
-  const leftThreshold = groupWidth * 0.5;
-  const rightThreshold = groupWidth * 1.5;
-  if (imgContainer.scrollLeft < leftThreshold) {
-    isJumping = true;
-    imgContainer.style.scrollBehavior = "auto";
-
-    imgContainer.scrollLeft += groupWidth;
-    imgContainer.style.scrollBehavior = "smooth";
-    requestAnimationFrame(() => (isJumping = false));
-  } else if (imgContainer.scrollLeft > rightThreshold) {
-    isJumping = true;
-    imgContainer.style.scrollBehavior = "auto";
-    imgContainer.scrollLeft -= groupWidth;
-    imgContainer.style.scrollBehavior = "smooth";
-    requestAnimationFrame(() => (isJumping = false));
-  }
-
-  // find where the center is now
-  const centerX = imgContainer.scrollLeft + imgContainer.clientWidth / 2;
-  const halfCWidth = imgContainer.clientWidth / 2;
 
   // set the blur, scale and opacity
   imgs.forEach((img) => {
@@ -90,3 +69,9 @@ scrollEffect();
 imgContainer.addEventListener("scroll", () => {
   scrollEffect();
 });
+
+// I firstly tried to copy 3 groups of pictures to fake the infinite scroll effect
+// the core is when scrolling to the bonding of final group, jump to first group;
+// however the jumping process is obvious.
+// I decide to use Js to clone the group (I recogonize that its the same effect as I copy them manually).
+// At this stage it looks quite like infinite scroll, except the annoying jumping flash.
