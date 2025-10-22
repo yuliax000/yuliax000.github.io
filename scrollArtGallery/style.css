@@ -1,44 +1,28 @@
 body {
-  /* display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 100vh; */
-  margin: 0;
+  min-height: 100vh;
   background-color: beige;
-  /* gap: 10rem; */
+  gap: 10rem;
   /* overflow: hidden; */
-  overflow-x: hidden;
-  overflow-y: scroll;
-  overscroll-behavior-x: none;
 }
 
 #title {
-  position: fixed;
   font-size: 10rem;
   color: black;
-  width: 100%;
-  text-align: center;
-  left: 0;
-  top: 10rem;
-  z-index: 10;
-  /* display: flex;
+  display: flex;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
 }
 
 #instruction {
-  position: fixed;
-  width: 100%;
-  text-align: center;
-  left: 0;
-  top: 25rem;
   font-size: 5rem;
   color: darkgrey;
-  z-index: 10;
-  /* display: flex;
+  display: flex;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
 }
 
 img {
@@ -47,60 +31,34 @@ img {
   box-shadow: 0 0 1rem rgba(77, 77, 77, 0.5);
 }
 
-.slider {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  height: 100%;
-  gap: 10rem;
-  will-change: transform;
-  transition: transform 0.3s ease;
-  /* transform: translate(-50%, -50%); */
+.imgWrapper {
+  width: 100%;
+  overflow: hidden;
 }
 
 .imgs {
-  position: fixed;
   display: flex;
   align-items: center;
-  justify-content: center;
-  top: 40rem;
-  /* overflow-x: auto; */
-  overflow: hidden;
-  overscroll-behavior-x: none;
-  /* scroll-behavior: smooth; */
-  /* scroll-snap-type: x mandatory; */
-  /* margin-top: 35rem; */
-  width: 100%;
-  height: 70vh;
+
+  width: 100vw;
+  height: 75vh;
+  gap: 10rem;
+  padding: 0 20vw;
+
+  overflow-x: auto;
+  scroll-behavior: auto;
+  scroll-snap-type: x mandatory;
 }
 
-.sliderItem {
-  position: relative;
-  flex: 0 0 auto;
-  height: 100%;
-  display: flex;
-  overflow: hidden;
-}
-
-.cards {
+.imgs img {
   flex: 0 0 auto;
   width: 18vw;
   height: 60vh;
   object-fit: cover;
   border-radius: 4rem;
   /* ease animtion is used for smooth and natural experience */
-  transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
-  /* scroll-snap-align: center; */
-}
-
-.cards img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  /* transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease; */
+  scroll-snap-align: center;
 }
 /* 
 .imgs img:nth-child(4) {
