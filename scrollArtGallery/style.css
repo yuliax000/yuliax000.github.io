@@ -43,6 +43,85 @@ img {
   width: 100vw;
   height: 75vh;
   gap: 10rem;
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: beige;
+    gap: 10rem;
+    /* overflow: hidden; */
+  }
+
+  #title {
+    font-size: 10rem;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #instruction {
+    font-size: 5rem;
+    color: darkgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    width: 20vw;
+    height: 50vh;
+    box-shadow: 0 0 1rem rgba(77, 77, 77, 0.5);
+  }
+
+  .imgs {
+    display: flex;
+    align-items: center;
+
+    width: 100vw;
+    height: 75vh;
+    gap: 10rem;
+    padding: 0 20vw;
+
+    overflow-x: auto;
+    scroll-behavior: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .imgs img {
+    flex: 0 0 auto;
+    width: 18vw;
+    height: 60vh;
+    object-fit: cover;
+    border-radius: 4rem;
+    /* ease animtion is used for smooth and natural experience */
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+    scroll-snap-align: center;
+  }
+  /* 
+.imgs img:nth-child(4) {
+  transform: scale(1.2);
+  filter: none;
+  opacity: 1;
+} */
+  .imgs::-webkit-scrollbar {
+    display: none;
+  }
+
+  #img3,
+  #img4,
+  #img5,
+  #img6,
+  #img7,
+  #img8,
+  #img9,
+  #img10,
+  #img11 {
+    background-color: antiquewhite;
+  }
+
   padding: 0 20vw;
 
   overflow-x: auto;

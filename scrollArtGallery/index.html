@@ -1,142 +1,43 @@
-<style>
-  body {
-    margin: 0;
-    height: 200vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: beige;
-  }
-  .imgs-wrapper {
-    overflow: hidden;
-    width: 80vw;
-    height: 30vh;
-    position: relative;
-  }
-  .imgs {
-    display: flex;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  .imgs img {
-    width: 15vw;
-    margin: 0 0.5vw;
-    transform-origin: center center;
-    transition: transform 0.2s, filter 0.2s, opacity 0.2s;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll Art Gallery</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <!-- I have studied on this tutorial as reference https://www.youtube.com/watch?v=H8y9u0hc3U0 -->
+  <!-- at first, I tried to apply the style in that tutorial
+and I change some layout setting to make it fit my layout.
+unfortunately, the way the tutorial shows isn't the movement I want.
+It refresh each time so the scroll(especially with size change) looks not smooth and natural at all.
+everytime I scroll, all the cards gather together and then align to the layout.
+Therefore I'm not using that method, but it's worthwhile to learn such an implement. -->
+  <body>
+    <div id="title">My Art Gallery</div>
+    <div id="instruction">scroll to explore</div>
 
-<div class="imgs-wrapper">
-  <div class="imgs">
-    <img src="https://picsum.photos/300/200?random=1" />
-    <img src="https://picsum.photos/300/200?random=2" />
-    <img src="https://picsum.photos/300/200?random=3" />
-    <img src="https://picsum.photos/300/200?random=4" />
-    <img src="https://picsum.photos/300/200?random=5" />
-  </div>
-</div>
+    <!-- prepare 3 groups pictures to make it looks like infinite scroll visually -->
+    <div class="imgs">
+      <img src="/scrollArtGallery/assets/1.jpg" alt="img1" />
+      <img src="/scrollArtGallery/assets/2.jpg" alt="img2" />
+      <img id="img3" src="/scrollArtGallery/assets/3.png" alt="img3" />
+      <img id="img4" src="/scrollArtGallery/assets/4.png" alt="img4" />
+      <img id="img5" src="/scrollArtGallery/assets/5.png" alt="img5" />
+      <img src="/scrollArtGallery/assets/6.jpg" alt="img6" />
+      <img src="/scrollArtGallery/assets/7.jpg" alt="img7" />
+      <img src="/scrollArtGallery/assets/8.jpg" alt="img8" />
+      <img src="/scrollArtGallery/assets/9.jpg" alt="img9" />
+      <img src="/scrollArtGallery/assets/10.jpg" alt="img10" />
 
-<script>
-  const imgContainer = document.querySelector(".imgs");
-  let imgs = Array.from(imgContainer.querySelectorAll("img"));
-
-  // 克隆图片，做无限循环
-  imgContainer.append(...imgs.map((img) => img.cloneNode(true)));
-  imgContainer.append(...imgs.map((img) => img.cloneNode(true)));
-  imgs = Array.from(imgContainer.querySelectorAll("img"));
-
-  const imgCount = imgs.length;
-  const wrapper = document.querySelector(".imgs-wrapper");
-  const singleWidth =
-    imgs[0].offsetWidth +
-    parseFloat(getComputedStyle(imgs[0]).marginLeft) +
-    parseFloat(getComputedStyle(imgs[0]).marginRight);
-  const totalWidth = singleWidth * imgCount;
-
-  let position = -singleWidth * (imgCount / 3); // 初始显示中间组
-  imgContainer.style.transform = `translateX(${position}px)`;
-
-  let targetPos = position;
-  let speed = 0;
-  const damping = 0.1;
-
-  // 核心效果：中心缩放 + 模糊 + 透明度
-  function updateImgEffect() {
-    const centerX = wrapper.clientWidth / 2;
-
-    imgs.forEach((img) => {
-      const imgRect = img.getBoundingClientRect();
-      const imgCenter = imgRect.left + imgRect.width / 2;
-      const distance = Math.abs(centerX - imgCenter);
-      const ratio = Math.max(0, 1 - distance / (wrapper.clientWidth / 2));
-
-      img.style.transform = `scale(${0.7 + 0.5 * ratio})`;
-      img.style.opacity = `${0.4 + 0.6 * ratio}`;
-      img.style.filter = `blur(${5 * (1 - ratio)}px)`;
-    });
-  }
-
-  // 平滑动画循环
-  function animate() {
-    speed += (targetPos - position) * damping;
-    speed *= 0.8;
-    position += speed;
-
-    // 无限循环逻辑
-    if (position > 0) {
-      position -= totalWidth / 3;
-      targetPos -= totalWidth / 3;
-    } else if (position < (-totalWidth * 2) / 3) {
-      position += totalWidth / 3;
-      targetPos += totalWidth / 3;
-    }
-
-    imgContainer.style.transform = `translateX(${position}px)`;
-    updateImgEffect();
-    requestAnimationFrame(animate);
-  }
-  animate();
-
-  // 滚轮事件：纵向滚轮控制横向滚动
-  let wheelTimeout;
-  window.addEventListener(
-    "wheel",
-    (e) => {
-      const delta = e.deltaY;
-      targetPos -= delta; // 正数向下滚，translateX向左
-
-      // 清除之前定时器
-      if (wheelTimeout) clearTimeout(wheelTimeout);
-
-      // 滚轮停止后触发吸附
-      wheelTimeout = setTimeout(() => {
-        snapToClosest();
-      }, 150); // 150ms 无滚动则认为停止
-
-      e.preventDefault();
-    },
-    { passive: false }
-  );
-
-  // 吸附到最近中心图片
-  function snapToClosest() {
-    const containerCenter = wrapper.clientWidth / 2;
-    let closestImg = imgs[0];
-    let minDist = Infinity;
-
-    imgs.forEach((img) => {
-      const rect = img.getBoundingClientRect();
-      const imgCenter = rect.left + rect.width / 2;
-      const dist = Math.abs(containerCenter - imgCenter);
-      if (dist < minDist) {
-        minDist = dist;
-        closestImg = img;
-      }
-    });
-
-    const imgRect = closestImg.getBoundingClientRect();
-    const imgCenter = imgRect.left + imgRect.width / 2;
-    targetPos += containerCenter - imgCenter; // 调整 targetPos，让最近图片居中
-  }
-</script>
+      <!--------- I firstly tried to copy 3 groups of pictures to fake the infinite scroll effect
+       the core is when scrolling to the bonding of final group, jump to first groups' same position
+       however the jumping process is slow and obvious, it doesn't look like infinite scroll. 
+       I decide to use Js to clone the group (I recogonize that its the same effect as I copy them manually).
+       At this stage it looks quite like infinite scroll, except the annoying jumping animation.
+       I'm going to save this demo but explore the other way to imply infinite scroll-------->
+    </div>
+  </body>
+</html>
