@@ -42,10 +42,7 @@ const groupWidth = imgWidth * groupCount;
 imgContainer.scrollLeft = groupWidth;
 
 let isJumping = false;
-
-//   make vertical scroll can control the picture's horizontal scroll
-
-// scroll to the edge of the 3rd / 1st group, jump to 2nd group
+// scroll to certain distance, jump to another group
 function scrollEffect() {
   if (isJumping) return;
 
@@ -53,16 +50,12 @@ function scrollEffect() {
   const rightThreshold = groupWidth * 1.5;
   if (imgContainer.scrollLeft < leftThreshold) {
     isJumping = true;
-    imgContainer.style.scrollBehavior = "auto";
     imgContainer.scrollLeft += groupWidth;
-    imgContainer.style.scrollBehavior = "smooth";
-    setTimeout(() => (isJumping = false), 0);
+    requestAnimationFrame(() => (isJumping = false));
   } else if (imgContainer.scrollLeft > rightThreshold) {
     isJumping = true;
-    imgContainer.style.scrollBehavior = "auto";
     imgContainer.scrollLeft -= groupWidth;
-    imgContainer.style.scrollBehavior = "smooth";
-    setTimeout(() => (isJumping = false), 0);
+    requestAnimationFrame(() => (isJumping = false));
   }
 
   // find where the center is now
@@ -88,10 +81,6 @@ function scrollEffect() {
 }
 
 scrollEffect();
-
-imgContainer.addEventListener("scroll", () => {
-  scrollEffect();
-});
 
 // I firstly tried to copy 3 groups of pictures to fake the infinite scroll effect
 // the core is when scrolling to the bonding of final group, jump to first group;
