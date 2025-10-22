@@ -51,26 +51,14 @@ img {
   position: absolute;
   display: flex;
   align-items: center;
-<<<<<<< Updated upstream
   justify-content: center;
   top: 0;
   left: 0;
   height: 100%;
-  /* gap: 10rem; */
+  gap: 10rem;
   will-change: transform;
   transition: transform 0.3s ease;
   /* transform: translate(-50%, -50%); */
-=======
-
-  width: 100vw;
-  height: 75vh;
-  gap: 10rem;
-  padding: 0 20vw;
-
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
->>>>>>> Stashed changes
 }
 
 .imgs {
