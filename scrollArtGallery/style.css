@@ -42,7 +42,11 @@ img {
 
   overflow-x: auto;
   scroll-behavior: auto;
-  scroll-snap-type: x mandatory;
+  /* scroll-snap-type: x mandatory; */
+}
+
+.imgs.noSnap {
+  scroll-snap-type: none;
 }
 
 .imgs img {
@@ -52,7 +56,7 @@ img {
   object-fit: cover;
   border-radius: 4rem;
   /* ease animtion is used for smooth and natural experience */
-  transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+  /* transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease; */
   scroll-snap-align: center;
 }
 /* 

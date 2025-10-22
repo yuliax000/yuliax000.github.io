@@ -42,6 +42,8 @@ const groupWidth = imgWidth * groupCount;
 imgContainer.scrollLeft = groupWidth;
 
 let isJumping = false;
+const snapClass = "noSnap";
+
 // scroll to certain distance, jump to another group
 function scrollEffect() {
   if (isJumping) return;
@@ -50,16 +52,20 @@ function scrollEffect() {
   const rightThreshold = groupWidth * 1.5;
   if (imgContainer.scrollLeft < leftThreshold) {
     isJumping = true;
+    imgContainer.classList.add(snapClass);
     const offset = imgContainer.scrollLeft + groupWidth;
     imgContainer.scrollLeft = offset;
+    imgContainer.classList.remove(snapClass);
     // imgContainer.style.scrollBehavior = "smooth";
     requestAnimationFrame(() => (isJumping = false));
   } else if (imgContainer.scrollLeft > rightThreshold) {
     isJumping = true;
+    imgContainer.classList.add(snapClass);
     // imgContainer.style.scrollBehavior = "auto";
     const offset = imgContainer.scrollLeft - groupWidth;
     imgContainer.scrollLeft = offset;
     // imgContainer.style.scrollBehavior = "smooth";
+    imgContainer.classList.remove(snapClass);
     requestAnimationFrame(() => (isJumping = false));
   }
 
@@ -86,6 +92,47 @@ function scrollEffect() {
 }
 
 scrollEffect();
+
+// since scroll-snap-type will cause jumping animation when reset group,
+// I have to write snap effect manually;
+
+function snap() {
+  const containerCenter =
+    imgContainer.scrollLeft + imgContainer.clientWidth / 2;
+  let closest = imgs[0];
+  let minDist = Infinity;
+
+  imgs.forEach((img) => {
+    const imgCenter = img.offsetLeft + img.offsetWidth / 2;
+    const distance = Math.abs(containerCenter - imgCenter);
+    // Find closest img(the smallest distance).
+    if (distance < minDist) {
+      minDist = distance;
+      closest = img;
+    }
+  });
+  const target =
+    closest.offsetLeft + closest.offsetWidth / 2 - imgContainer.clientWidth / 2;
+
+  imgContainer.scrollTo({
+    left: target,
+    behavior: "smooth",
+  });
+}
+
+let scrollTimeout;
+const scrollSpeed = 0.3;
+imgContainer.addEventListener("wheel", (e) => {
+  // map vertical scroll to horizontal
+  e.preventDefault();
+  imgContainer.scrollLeft += e.deltaY * scrollSpeed;
+  scrollEffect();
+
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    snap();
+  }, 1);
+});
 
 imgContainer.addEventListener("scroll", () => {
   scrollEffect();
