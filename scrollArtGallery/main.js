@@ -47,22 +47,32 @@ let isJumping = false;
 
 // scroll to the edge of the 3rd / 1st group, jump to 2nd group
 function scrollEffect() {
-  if (isJumping) return;
+  //   if (isJumping) return;
 
   const leftThreshold = groupWidth * 0.5;
   const rightThreshold = groupWidth * 1.5;
   if (imgContainer.scrollLeft < leftThreshold) {
+    imgContainer.style.scrollBehavior = "auto";
     isJumping = true;
     imgContainer.style.scrollBehavior = "auto";
     imgContainer.scrollLeft += groupWidth;
     imgContainer.style.scrollBehavior = "smooth";
+<<<<<<< Updated upstream
     setTimeout(() => (isJumping = false), 0);
+=======
+    requestAnimationFrame(() => (isJumping = false));
+>>>>>>> Stashed changes
   } else if (imgContainer.scrollLeft > rightThreshold) {
+    imgContainer.style.scrollBehavior = "auto";
     isJumping = true;
     imgContainer.style.scrollBehavior = "auto";
     imgContainer.scrollLeft -= groupWidth;
     imgContainer.style.scrollBehavior = "smooth";
+<<<<<<< Updated upstream
     setTimeout(() => (isJumping = false), 0);
+=======
+    requestAnimationFrame(() => (isJumping = false));
+>>>>>>> Stashed changes
   }
 
   // find where the center is now
