@@ -8,53 +8,36 @@
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
   </head>
-  <body>
-    <div id="title">My Art Gallery</div>
-    <div id="instruction">scroll to explore</div>
-    <!-- prepare 3 groups pictures to make it looks like infinite scroll visually -->
-    <div class="imgs">
-      <div class="slider">
-        <div class="sliderItem">
-          <div class="cards">
-            <img src="/scrollArtGallery/assets/1.jpg" alt="img1" />
-          </div>
-          <div class="cards">
-            <img src="/scrollArtGallery/assets/2.jpg" alt="img2" />
-          </div>
-          <div class="cards">
-            <img id="img3" src="/scrollArtGallery/assets/3.png" alt="img3" />
-          </div>
-          <div class="cards">
-            <img id="img4" src="/scrollArtGallery/assets/4.png" alt="img4" />
-          </div>
-          <div class="cards">
-            <img id="img5" src="/scrollArtGallery/assets/5.png" alt="img5" />
-          </div>
-          <div class="cards">
-            <img src="/scrollArtGallery/assets/6.jpg" alt="img6" />
-          </div>
-          <div class="cards">
-            <img src="/scrollArtGallery/assets/7.jpg" alt="img7" />
-          </div>
-          <div class="cards">
-            <img src="/scrollArtGallery/assets/8.jpg" alt="img8" />
-          </div>
-          <div class="cards">
-            <img src="/scrollArtGallery/assets/9.jpg" alt="img9" />
-          </div>
-          <div class="cards">
-            <img src="/scrollArtGallery/assets/10.jpg" alt="img10" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-<!-- I have studied on this tutorial as reference https://www.youtube.com/watch?v=H8y9u0hc3U0 -->
-<!-- at first, I tried to apply the style in that tutorial
+  <!-- I have studied on this tutorial as reference https://www.youtube.com/watch?v=H8y9u0hc3U0 -->
+  <!-- at first, I tried to apply the style in that tutorial
 and I change some layout setting to make it fit my layout.
 unfortunately, the way the tutorial shows isn't the movement I want.
 It refresh each time so the scroll(especially with size change) looks not smooth and natural at all.
 everytime I scroll, all the cards gather together and then align to the layout.
 Therefore I'm not using that method, but it's worthwhile to learn such an implement. -->
+  <body>
+    <div id="title">My Art Gallery</div>
+    <div id="instruction">scroll to explore</div>
+
+    <!-- prepare 3 groups pictures to make it looks like infinite scroll visually -->
+    <div class="imgs">
+      <img src="/scrollArtGallery/assets/1.jpg" alt="img1" />
+      <img src="/scrollArtGallery/assets/2.jpg" alt="img2" />
+      <img id="img3" src="/scrollArtGallery/assets/3.png" alt="img3" />
+      <img id="img4" src="/scrollArtGallery/assets/4.png" alt="img4" />
+      <img id="img5" src="/scrollArtGallery/assets/5.png" alt="img5" />
+      <img src="/scrollArtGallery/assets/6.jpg" alt="img6" />
+      <img src="/scrollArtGallery/assets/7.jpg" alt="img7" />
+      <img src="/scrollArtGallery/assets/8.jpg" alt="img8" />
+      <img src="/scrollArtGallery/assets/9.jpg" alt="img9" />
+      <img src="/scrollArtGallery/assets/10.jpg" alt="img10" />
+
+      <!--------- I firstly tried to copy 3 groups of pictures to fake the infinite scroll effect
+       the core is when scrolling to the bonding of final group, jump to first groups' same position
+       however the jumping process is slow and obvious, it doesn't look like infinite scroll. 
+       I decide to use Js to clone the group (I recogonize that its the same effect as I copy them manually).
+       At this stage it looks quite like infinite scroll, except the annoying jumping animation.
+       I'm going to save this demo but explore the other way to imply infinite scroll-------->
+    </div>
+  </body>
+</html>
