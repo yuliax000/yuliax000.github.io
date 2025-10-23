@@ -41,7 +41,7 @@ img {
   width: 100vw;
   height: 75vh;
   gap: 5vw;
-  padding: 0 20vw;
+  /* padding: 0 20vw; */
 
   overflow-x: auto;
   scroll-behavior: auto;
