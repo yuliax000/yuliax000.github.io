@@ -7,7 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 100dvh;
+  min-height: 100vh;
   background-color: beige;
   gap: 10rem;
   /* overflow: hidden; */
@@ -30,8 +30,8 @@ body {
 }
 
 img {
-  width: 20dvw;
-  height: 50dvh;
+  width: 20vw;
+  height: 50vh;
   box-shadow: 0 0 1rem rgba(77, 77, 77, 0.5);
 }
 
@@ -39,8 +39,8 @@ img {
   display: flex;
   align-items: center;
 
-  width: 100dvw;
-  height: 75dvh;
+  width: 100vw;
+  height: 75vh;
   gap: 10rem;
   padding: 0 20vw;
 
@@ -55,8 +55,8 @@ img {
 
 .imgs img {
   flex: 0 0 auto;
-  width: 18dvw;
-  height: 60dvh;
+  width: 18vw;
+  height: 60vh;
   object-fit: cover;
   border-radius: 4rem;
   /* ease animtion is used for smooth and natural experience */
