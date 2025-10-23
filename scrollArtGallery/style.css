@@ -38,7 +38,7 @@ img {
   display: flex;
   align-items: center;
 
-  width: 100vw;
+  width: auto;
   height: 75vh;
   gap: 5vw;
   /* padding: 0 20vw; */
