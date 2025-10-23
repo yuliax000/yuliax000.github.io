@@ -30,8 +30,8 @@ body {
 }
 
 img {
-  width: 20%;
-  height: 50%;
+  width: 20vw;
+  height: 50vh;
   box-shadow: 0 0 1rem rgba(77, 77, 77, 0.5);
 }
 
@@ -39,10 +39,10 @@ img {
   display: flex;
   align-items: center;
 
-  width: 100%;
-  height: 75%;
+  width: 100vw;
+  height: 75vh;
   gap: 10rem;
-  /* padding: 0 20vw; */
+  padding: 0 20vw;
 
   overflow-x: auto;
   scroll-behavior: auto;
@@ -55,8 +55,8 @@ img {
 
 .imgs img {
   flex: 0 0 auto;
-  width: 18%;
-  height: 60%;
+  width: 18vw;
+  height: 60vh;
   object-fit: cover;
   border-radius: 4rem;
   /* ease animtion is used for smooth and natural experience */
