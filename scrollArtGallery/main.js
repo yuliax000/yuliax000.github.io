@@ -76,7 +76,7 @@ function scrollEffect() {
     // calculate the scale, opacity and blur's transition based on distance ratio
     const scale = 0.7 + ratio * 0.5;
     const opacity = 0.4 + ratio * 0.6;
-    const blurRem = (1 - ratio) * 5;
+    const blurRem = (1 - ratio) * 2;
 
     img.style.transform = `scale(${scale})`;
     img.style.opacity = `${opacity}`;
