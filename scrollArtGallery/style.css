@@ -8,12 +8,12 @@ body {
   justify-content: center;
   flex-direction: column;
   background-color: beige;
-  gap: 2.5rem;
+  gap: 2.5vh;
   /* overflow: hidden; */
 }
 
 #title {
-  font-size: 2.5rem;
+  font-size: 5vh;
   color: black;
   display: flex;
   align-items: center;
@@ -21,7 +21,7 @@ body {
 }
 
 #instruction {
-  font-size: 2.5rem;
+  font-size: 2.5vh;
   color: darkgrey;
   display: flex;
   align-items: center;
@@ -40,7 +40,7 @@ img {
 
   width: 100vw;
   height: 75vh;
-  gap: 2.5rem;
+  gap: 5vw;
   /* padding: 0 20vw; */
 
   overflow-x: auto;
