@@ -9,7 +9,7 @@ body {
   flex-direction: column;
   background-color: beige;
   gap: 2.5vh;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 #title {
@@ -31,7 +31,7 @@ body {
 img {
   width: 20vw;
   height: 50vh;
-  box-shadow: 0 0 0.75vh rgba(77, 77, 77, 0.5);
+  box-shadow: 0 0 0.5vh rgba(77, 77, 77, 0.5);
 }
 
 .imgs {
@@ -41,7 +41,7 @@ img {
   width: 100vw;
   height: 75vh;
   gap: 5vw;
-  /* padding: 0 20vw; */
+  padding: 0 20vw;
 
   overflow-x: auto;
   scroll-behavior: auto;
