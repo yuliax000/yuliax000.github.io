@@ -5,12 +5,12 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background-color: beige;
-  gap: 2rem;
+  gap: 10rem;
   overflow: hidden;
 }
 
 #title {
-  font-size: 2rem;
+  font-size: 10rem;
   color: black;
   display: flex;
   align-items: center;
@@ -18,7 +18,7 @@ body {
 }
 
 #instruction {
-  font-size: 1rem;
+  font-size: 5rem;
   color: darkgrey;
   display: flex;
   align-items: center;
