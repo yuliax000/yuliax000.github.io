@@ -20,9 +20,14 @@ const left1 = imgs[1].offsetLeft;
 const gap = Math.max(0, left1 - left0 - imgs[0].offsetWidth);
 const imgWidth = imgs[0].offsetWidth + gap;
 const groupWidth = imgWidth * groupCount;
+const centerImg = imgs[groupCount];
 
 // setting default shows the second group
-imgContainer.scrollLeft = groupWidth;
+
+imgContainer.scrollLeft =
+  centerImg.offsetLeft +
+  centerImg.offsetWidth / 2 -
+  imgContainer.clientWidth / 2;
 
 let isJumping = false;
 const snapClass = "noSnap";
