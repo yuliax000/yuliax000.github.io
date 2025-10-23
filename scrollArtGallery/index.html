@@ -15,11 +15,32 @@ unfortunately, the way the tutorial shows isn't the movement I want.
 It refresh each time so the scroll(especially with size change) looks not smooth and natural at all.
 everytime I scroll, all the cards gather together and then align to the layout.
 Therefore I'm not using that method, but it's worthwhile to learn such an implement. -->
+  <!-- I've also tried the method mentioned in this tutorial, https://www.youtube.com/watch?v=4UXJb4rjeDg. 
+ haven't found the bug, but it doesn't work(probably because of innerwidth of my clone group is too big).
+  but I use some code as inspiration-->
+
   <body>
+    <!-- The main objective of this website is to showcase the artist’s works in a pure and focused way. 
+I wanted the site to serve as a clean visual space where the artworks themselves take center stage. 
+Throughout the entire site, I included only two lines of text — the title and a short instruction — 
+to avoid distracting users from the visual content. 
+
+I used different font sizes and colors to distinguish the two lines, 
+clarifying their separate communicative functions. 
+Both are vertically aligned so that when users first enter the page, 
+their attention naturally goes to the clearest image at the center, 
+followed by the equally visible text. 
+
+My goal was to preserve simplicity and visual order, 
+so I intentionally avoided adding unnecessary features or information to this interface. 
+Even in future development, I plan to keep navigation minimal 
+and limit the number of entry points to other pages to prevent visual clutter or distraction.-->
+
     <div id="title">My Art Gallery</div>
+
     <div id="instruction">scroll to explore</div>
 
-    <!-- prepare 3 groups pictures to make it looks like infinite scroll visually -->
+    <!-- <div class="imgWrapper"> -->
     <div class="imgs">
       <img src="/scrollArtGallery/assets/1.jpg" alt="img1" />
       <img src="/scrollArtGallery/assets/2.jpg" alt="img2" />
@@ -31,13 +52,7 @@ Therefore I'm not using that method, but it's worthwhile to learn such an implem
       <img src="/scrollArtGallery/assets/8.jpg" alt="img8" />
       <img src="/scrollArtGallery/assets/9.jpg" alt="img9" />
       <img src="/scrollArtGallery/assets/10.jpg" alt="img10" />
-
-      <!--------- I firstly tried to copy 3 groups of pictures to fake the infinite scroll effect
-       the core is when scrolling to the bonding of final group, jump to first groups' same position
-       however the jumping process is slow and obvious, it doesn't look like infinite scroll. 
-       I decide to use Js to clone the group (I recogonize that its the same effect as I copy them manually).
-       At this stage it looks quite like infinite scroll, except the annoying jumping animation.
-       I'm going to save this demo but explore the other way to imply infinite scroll-------->
+      <!-- </div> -->
     </div>
   </body>
 </html>
